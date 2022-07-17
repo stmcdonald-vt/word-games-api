@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "name": "word-games-api",
+  "description": "API for the Word Games application",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stmcdonald-vt/word-games-api.git"
+  },
+  "author": "Sean McDonald",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stmcdonald-vt/word-games-api/issues"
+  },
+  "homepage": "https://github.com/stmcdonald-vt/word-games-api#readme"
+}

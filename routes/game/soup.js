@@ -14,7 +14,13 @@ router.get("/levels", (req, res) => {
     res.send(levels.map((lvl) => lvl.id));
 });
 
-router.get("/level/:id", (req, res) => {
+router.get("/level/:id", (req, res, next) => {
+    const schema = Joi.number().max(levels.length - 1);
+    const { error } = schema.validate(req.params.id);
+    if (error) {
+        res.status(400).send(error.details[0].message)
+        return;
+    }
     // Return specific level based on id
     let gameData = levels[req.params.id];
     res.send({

@@ -1,19 +1,19 @@
 const levels = [
     {
         id: 0,
-        letters: ['F','U', 'A', 'S', 'D', 'E'],
-        answers: ["FUSED", "FEUDS", "USED", "DEAF", "SAD", "SEA"]
+        letters: ["F", "U", "A", "S", "D", "E"],
+        answers: ["FUSED", "FEUDS", "USED", "DEAF", "SAD", "SEA"],
     },
     {
         id: 1,
         letters: [],
-        answers: []
+        answers: [],
     },
     {
         id: 2,
         letters: [],
-        answers: []
-    }
-]
+        answers: [],
+    },
+];
 
-module.exports = levels
+module.exports = levels;

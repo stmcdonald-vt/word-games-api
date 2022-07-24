@@ -10,12 +10,11 @@ router.get("/", (req, res) => {
 
 router.get("/levels", (req, res) => {
     // Return list of levels
-    console.log(levels);
     res.send(levels.map((lvl) => lvl.id));
 });
 
 router.get("/level/:id", (req, res, next) => {
-    const schema = Joi.number().max(levels.length - 1);
+    const schema = Joi.number().min(0).max(levels.length - 1);
     const { error } = schema.validate(req.params.id);
     if (error) {
         res.status(400).send(error.details[0].message)
@@ -30,9 +29,9 @@ router.get("/level/:id", (req, res, next) => {
 });
 
 router.post("/validate", (req, res) => {
-    const bodySchema = Joi.object({
+    const schema = Joi.object({
         level: Joi.number().max(levels.length - 1),
-        guess: Joi.string().pattern('[a-zA-Z]+')
+        guess: Joi.string().pattern(new RegExp('[a-zA-Z]+'))
     })
     const { error } = schema.validate(req.body);
     if (error) {
@@ -42,7 +41,7 @@ router.post("/validate", (req, res) => {
     
     // Check request for valid response
     // body must indicate a level id
-    res.send("You are incorrect");
+    res.send(true);
 });
 
 module.exports = router;

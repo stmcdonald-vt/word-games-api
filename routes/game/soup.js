@@ -29,7 +29,17 @@ router.get("/level/:id", (req, res, next) => {
     });
 });
 
-router.get("/validate", (req, res) => {
+router.post("/validate", (req, res) => {
+    const bodySchema = Joi.object({
+        level: Joi.number().max(levels.length - 1),
+        guess: Joi.string().pattern('[a-zA-Z]+')
+    })
+    const { error } = schema.validate(req.body);
+    if (error) {
+        res.status(400).send(error.details[0].message)
+        return;
+    }
+    
     // Check request for valid response
     // body must indicate a level id
     res.send("You are incorrect");

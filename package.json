@@ -4,6 +4,9 @@
     "joi": "^17.6.0"
   },
   "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.0.0",
     "nodemon": "^2.0.19"
   },
   "name": "word-games-api",
@@ -11,7 +14,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

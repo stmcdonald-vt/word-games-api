@@ -4,6 +4,7 @@ const app = express();
 
 const gameRouter = require("./routes/game/game");
 app.use("/game", gameRouter);
+app.use(express.json());
 
 module.exports.handler = serverless(app);
 module.exports = app.listen(3000);

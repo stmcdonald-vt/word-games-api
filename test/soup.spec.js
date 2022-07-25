@@ -45,8 +45,57 @@ describe('AlphabetSoup', () => {
                 level: 0,
                 guess: "FUSED"
             });
-        console.log(response);
         assert.isTrue(response.body);
     })
-
+    it('Validate Answer, Correct, Mixed Case', async () => {
+        const response = await chai
+            .request(server)
+            .post('/game/soup/validate')
+            .send({
+                level: 0,
+                guess: "Fused"
+            });
+        assert.isTrue(response.body);
+    })
+    it('Validate Answer, Correct, Lower Case', async () => {
+        const response = await chai
+            .request(server)
+            .post('/game/soup/validate')
+            .send({
+                level: 0,
+                guess: "fused"
+            });
+        assert.isTrue(response.body);
+    })
+    it('Validate Answer, Incorrect Response', async () => {
+        const response = await chai
+            .request(server)
+            .post('/game/soup/validate')
+            .send({
+                level: 0,
+                guess: "wronganswer"
+            });
+        assert.isFalse(response.body);
+    })
+    it('Validate Answer, Non-letter Characters', async () => {
+        const response = await chai
+            .request(server)
+            .post('/game/soup/validate')
+            .send({
+                level: 0,
+                guess: "#1Player"
+            });
+        // console.log(response);
+        assert.equal(response.status, 400);
+    })
+    it('Validate Answer, invalid level', async () => {
+        const response = await chai
+            .request(server)
+            .post('/game/soup/validate')
+            .send({
+                level: 1000,
+                guess: "#1Player"
+            });
+        assert.equal(response.status, 400);
+    })
 });

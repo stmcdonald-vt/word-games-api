@@ -1,7 +1,7 @@
 const serverless = require('serverless-http');
 const express = require("express");
 const app = express();
-const cors = require("cors")
+const cors = require("cors");
 
 const gameRouter = require("./routes/game/game");
 gameRouter.use(cors());

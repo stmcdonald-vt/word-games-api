@@ -6,13 +6,13 @@ const levels = [
     },
     {
         id: 1,
-        letters: [],
-        answers: [],
+        letters: ["B", "P", "S", "U", "I", "L"],
+        answers: ["PUBIS", "BLIP", "LISP", "LIPS", "PUB", "SIP"],
     },
     {
         id: 2,
-        letters: [],
-        answers: [],
+        letters: ["R", "H", "Y", "N", "O", "E"],
+        answers: ["HONEY", "ONERY", "HERON", "HERO", "ONE", "ORE"],
     },
 ];
 
